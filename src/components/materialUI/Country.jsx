@@ -2,14 +2,16 @@ import Autocomplete from "@mui/material/Autocomplete";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import * as React from "react";
-
-export default function CountrySelect() {
+export default function CountrySelect({ value, onChange }) {
   return (
     <Autocomplete
       id="country-select-demo"
       sx={{ width: "100%" }}
+      value={value}
       options={countries}
       autoHighlight
+      onChange={onChange}
+      inputValue={value}
       getOptionLabel={(option) => option.label}
       renderOption={(props, option) => (
         <Box
