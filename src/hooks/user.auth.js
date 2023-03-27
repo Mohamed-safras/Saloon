@@ -7,6 +7,7 @@ const useAuthHandler = (formInput) => {
   const dispatch = useDispatch();
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+
   const {
     title,
     email,
@@ -69,9 +70,26 @@ const useAuthHandler = (formInput) => {
       }
       setLoading(false);
     } catch (error) {
-      console.log(error);
       setLoading(false);
       setError(error.response.data.error);
+    }
+  };
+
+  const login = async (event) => {
+    event.preventDefault();
+    try {
+      const response = await axios.post(
+        "http://localhost:8080/api/v1/saloon/signin",
+        {
+          ...formInput,
+        }
+      );
+      if (response.status === 200 || response.statusText === "OK") {
+        localStorage.setItem("user", JSON.stringify(response.data));
+        dispatch(setCurrentUser(response.data));
+      }
+    } catch (error) {
+      console.log(error);
     }
   };
 
@@ -79,6 +97,8 @@ const useAuthHandler = (formInput) => {
     register,
     loading,
     error,
+
+    login,
   };
 };
 
