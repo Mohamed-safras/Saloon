@@ -11,7 +11,9 @@ export default function CountrySelect({ value, onChange }) {
       options={countries}
       autoHighlight
       onChange={onChange}
+      size="dense"
       inputValue={value}
+      fullWidth
       getOptionLabel={(option) => option.label}
       renderOption={(props, option) => (
         <Box
@@ -31,6 +33,8 @@ export default function CountrySelect({ value, onChange }) {
       )}
       renderInput={(params) => (
         <TextField
+          size="small"
+          margin="dense"
           {...params}
           label="Choose a country"
           inputProps={{

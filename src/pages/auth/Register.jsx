@@ -1,13 +1,14 @@
 import { Alert, Button, TextField } from "@mui/material";
 import React from "react";
-import { useDispatch } from "react-redux";
+
 import SaloonLogo from "../../assets/logo.webp";
 import Banners from "../../components/banner/Banners";
-import CountrySelect from "../../components/form/Country";
+import CountrySelect from "../../components/materialUI/Country";
 import useInputHandler from "../../hooks/InputHandler";
 import useAuthHandler from "../../hooks/user.auth";
-import { setCurrentUser } from "../../redux-store/user/user.action";
+
 import { colors } from "../../styles/colors";
+import { Image } from "../../styles/image";
 import {
   BannerContainer,
   Form,
@@ -39,9 +40,9 @@ const Register = () => {
       </BannerContainer>
       <FormContainer>
         <h3>Get Started Now</h3>
-        <Logo style={{ margin: 10 }} height={150} width={150}>
+        <Image style={{ margin: 10 }} height={150} width={150}>
           <img src={SaloonLogo} alt="logo" />
-        </Logo>
+        </Image>
         {error && <Alert severity="error">{error}</Alert>}
         <Form onSubmit={register}>
           <TextField

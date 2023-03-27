@@ -15,11 +15,16 @@ export const Body = styled.div`
   top: 0;
   overflow-y: scroll;
   height: 100vh;
-  transition: all 0.2s ease-in;
+  transition: all 0.05s linear;
   /* padding: 0px 20px; */
 
   @media screen and (max-width: 1000px) {
     left: 80px;
     width: calc(100% - 80px);
+  }
+  @media screen and (max-width: 600px) {
+    /* display: none; */
+    width: 100%;
+    left: 0;
   }
 `;
