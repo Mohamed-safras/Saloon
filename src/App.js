@@ -25,7 +25,7 @@ function App() {
     });
     // dispatch never updates so we can ingore it in useEffect dependency array
   }, [pathname, dispatch]);
-
+  console.log("da");
   return (
     <React.Fragment>
       <Routes>

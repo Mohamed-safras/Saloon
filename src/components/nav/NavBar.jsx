@@ -1,26 +1,22 @@
-import MenuIcon from "@mui/icons-material/Menu";
 import NotificationsNoneOutlinedIcon from "@mui/icons-material/NotificationsNoneOutlined";
 import SearchIcon from "@mui/icons-material/Search";
 import { IconButton } from "@mui/material";
 import React from "react";
-import Profile from "../Profile/Profile";
-
+import ProfilePic from "../../assets/styling-hair.jpg";
 import {
-  MenuWrapper,
+  Image,
   NavContainer,
   NavLeft,
   NavRight,
-  ProfileWrapper,
+  Profile,
+  Role,
+  UserDetails,
+  UserName,
 } from "./NavBar.styles";
-const NavBar = ({ toggleSideBar }) => {
+
+const NavBar = () => {
   return (
     <NavContainer>
-      <MenuWrapper>
-        <IconButton onClick={toggleSideBar}>
-          <MenuIcon />
-        </IconButton>
-      </MenuWrapper>
-
       <NavLeft>
         <h1>Overview</h1>
       </NavLeft>
@@ -31,9 +27,15 @@ const NavBar = ({ toggleSideBar }) => {
         <IconButton>
           <NotificationsNoneOutlinedIcon />
         </IconButton>
-        <ProfileWrapper>
-          <Profile />
-        </ProfileWrapper>
+        <Profile>
+          <Image type="profile">
+            <img src={ProfilePic} alt="profile" />
+          </Image>
+          <UserDetails>
+            <UserName>Safras</UserName>
+            <Role>Owner</Role>
+          </UserDetails>
+        </Profile>
       </NavRight>
     </NavContainer>
   );

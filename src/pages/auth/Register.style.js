@@ -9,6 +9,23 @@ export const RegisterContainer = styled.div`
   height: 100vh;
 `;
 
+export const Logo = styled.div`
+  width: ${({ width }) => width}px;
+  height: ${({ height }) => height}px;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  @media screen and (max-width: 450px) {
+    width: 100px;
+    height: 100px;
+    /* margin: 0px; */
+  }
+`;
+
 export const Form = styled.form`
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -19,15 +36,19 @@ export const Form = styled.form`
     grid-template-columns: 1fr;
   }
 
-  .MuiFormControl-root {
+  /* .MuiFormControl-root {
     margin: 0px !important;
   }
 
   .MuiAutocomplete-root .MuiFormControl-root .MuiInputBase-root {
     height: 40px;
-    padding: 0 !important;
-    margin: 0 !important;
   }
+
+  .MuiAutocomplete-root .MuiFormControl-root .MuiInputBase-input {
+    top: -3px !important;
+    left: 100px !important;
+    font-size: 15px;
+  } */
 `;
 
 export const BannerContainer = styled.div`

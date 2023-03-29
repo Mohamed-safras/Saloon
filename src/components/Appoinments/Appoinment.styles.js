@@ -18,7 +18,7 @@ export const AppoinmentsContainer = styled.div`
   h3 {
     font-weight: 500;
     font-size: 15px;
-    margin-bottom: 10px;
+    margin: 10px;
   }
 `;
 
@@ -33,6 +33,5 @@ export const FinancialAppoinmentWrapper = styled.div`
 
   @media screen and (max-width: 1100px) {
     display: block;
-    margin: 10px 0;
   }
 `;
