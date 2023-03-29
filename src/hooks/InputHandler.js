@@ -10,8 +10,6 @@ const useInputHandler = (InitialState) => {
         [event.target.name]: event.target.value,
       };
     });
-
-    console.log(formInput);
   };
 
   return {

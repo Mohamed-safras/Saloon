@@ -42,10 +42,11 @@ export const TextArea = styled(TextareaAutosize)`
 `;
 
 export const InputWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
+  display: grid;
+  /* align-items: center; */
+  /* justify-content: space-between; */
+  /* width: 100%; */
   gap: 10px;
   height: 100%;
+  grid-template-columns: 1fr 1fr;
 `;
