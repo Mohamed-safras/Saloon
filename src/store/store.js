@@ -4,7 +4,7 @@ import {
   legacy_createStore as createStore,
 } from "redux";
 import logger from "redux-logger";
-import { rootReducer } from "./root_reducer";
+import { rootReducer } from "../reducers/root.reducer";
 
 const middleWares = [logger];
 

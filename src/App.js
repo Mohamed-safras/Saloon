@@ -4,12 +4,12 @@ import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 import AuthVerify from "./common/AuthVerify";
 import useLogOut from "./hooks/user.logout";
 
-import Login from "./pages/auth/Login";
-import Register from "./pages/auth/Register";
+import { setCurrentUser } from "./actions/user.action";
 import DashBoard from "./pages/Dashboard/DashBoard";
 import SharedLayOut from "./pages/Shared/ShardLayOut";
-import { setCurrentUser } from "./redux-store/user/user.action";
-import { currentUser } from "./redux-store/user/user.selector";
+import Login from "./pages/auth/Login";
+import Register from "./pages/auth/Register";
+import { currentUser } from "./selectors/user.selector";
 function App() {
   const dispatch = useDispatch();
   const currentUserValue = useSelector(currentUser);

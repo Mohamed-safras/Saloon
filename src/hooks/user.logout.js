@@ -1,7 +1,7 @@
 import { useCallback } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { setCurrentUser } from "../redux-store/user/user.action";
+import { setCurrentUser } from "../actions/user.action";
 
 const useLogOut = () => {
   const dispatch = useDispatch();

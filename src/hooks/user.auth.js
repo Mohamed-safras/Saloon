@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { setCurrentUser } from "../redux-store/user/user.action";
+import { setCurrentUser } from "../actions/user.action";
 
 const useAuthHandler = (formInput) => {
   const dispatch = useDispatch();

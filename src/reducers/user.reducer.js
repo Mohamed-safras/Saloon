@@ -1,4 +1,4 @@
-import { USER_ACTION_OPTIONS } from "./user.type";
+import { USER_ACTION_OPTIONS } from "../constants/user.type";
 
 const INITIAL_STATE = {
   currentUser: null,
