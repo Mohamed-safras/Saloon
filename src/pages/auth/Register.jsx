@@ -1,12 +1,12 @@
 import { Alert, Button, TextField } from "@mui/material";
 import React from "react";
-import { useDispatch } from "react-redux";
+
 import SaloonLogo from "../../assets/logo.webp";
-import Banners from "../../components/banner/Banners";
-import CountrySelect from "../../components/form/Country";
+import Banners from "../../components/Banner/Banners";
+import CountrySelect from "../../components/MaterialUIComponent/Country";
 import useInputHandler from "../../hooks/InputHandler";
 import useAuthHandler from "../../hooks/user.auth";
-import { setCurrentUser } from "../../redux-store/user/user.action";
+
 import { colors } from "../../styles/colors";
 import {
   BannerContainer,

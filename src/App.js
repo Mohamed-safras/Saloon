@@ -8,7 +8,6 @@ import Login from "./pages/auth/Login";
 import Register from "./pages/auth/Register";
 import DashBoard from "./pages/Dashboard/DashBoard";
 import SharedLayOut from "./pages/Shared/ShardLayOut";
-import Stylists from "./pages/Stylist/Stylists";
 import { setCurrentUser } from "./redux-store/user/user.action";
 import { currentUser } from "./redux-store/user/user.selector";
 function App() {
@@ -35,7 +34,7 @@ function App() {
             element={currentUserValue ? <DashBoard /> : <Navigate to="login" />}
           />
           <Route path="/clients" element={<h1>Clients</h1>} />
-          <Route path="/stylists" element={<Stylists />} />
+          <Route path="/stylists" element={<h1>asda</h1>} />
           <Route path="/message" element={<h1>message</h1>} />
           <Route path="/reviews" element={<h1>reviews</h1>} />
           <Route path="/finances" element={<h1>finances</h1>} />

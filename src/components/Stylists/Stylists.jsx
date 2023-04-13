@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { colors } from "../../styles/colors";
-import Card from "../cards/card";
+import Card from "../Cards/card";
 import { StylistsCards, StylistsContainer, ViewAll } from "./Stylists.styles";
 
 const Stylists = () => {
@@ -46,7 +46,7 @@ const Stylists = () => {
         <h3>Stylists</h3>
 
         <StylistsCards>
-          {loading && [...Array(3)].map((_, id) => <SkeletonCard key={id} />)}
+          {/*{loading && [...Array(3)].map((_, id) => <SkeletonCard key={id} />)}*/}
           {stylist.map(({ name, working_time, _id }) => (
             <Card
               key={_id}

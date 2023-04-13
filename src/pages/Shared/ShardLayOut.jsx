@@ -1,7 +1,7 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
-import NavBar from "../../components/nav/NavBar";
-import SideBar from "../../components/sidebar/SideBar";
+import NavBar from "../../components/Nav/NavBar";
+import SideBar from "../../components/Sidebar/SideBar";
 import { Body, Container } from "./Shared.styles";
 const SharedLayOut = () => {
   return (

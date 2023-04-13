@@ -3,7 +3,7 @@ import Appointment from "../../assets/appointments.png";
 import Client from "../../assets/customer-service.png";
 import Service from "../../assets/service.png";
 import { colors } from "../../styles/colors";
-import Card from "../cards/card";
+import Card from "../Cards/card";
 import Financial from "../Financial/Financial";
 
 import Graph from "../GraphStatistics/Graph";

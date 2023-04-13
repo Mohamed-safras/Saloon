@@ -3,7 +3,7 @@ import { IconButton } from "@mui/material";
 
 import React from "react";
 
-import { Image } from "../nav/NavBar.styles";
+import { Image } from "../Nav/NavBar.styles";
 import { CardContainer, CardDetails } from "./card.styles";
 
 const Card = ({ img, children, backGround }) => {
