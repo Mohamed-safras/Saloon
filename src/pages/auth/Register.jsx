@@ -3,18 +3,17 @@ import React from "react";
 
 import SaloonLogo from "../../assets/logo.webp";
 import Banners from "../../components/Banner/Banners";
-import CountrySelect from "../../components/MaterialUIComponent/Country";
 import useInputHandler from "../../hooks/InputHandler";
 import useAuthHandler from "../../hooks/user.auth";
 
 import { colors } from "../../styles/colors";
 import {
   BannerContainer,
+  Container,
   Form,
   FormContainer,
   Logo,
-  RegisterContainer,
-} from "./Register.style";
+} from "./auth.styles";
 
 export const InitialState = {
   title: "",
@@ -22,18 +21,17 @@ export const InitialState = {
   password: "",
   confirmPassword: "",
   phone: "",
-  shopNo: "",
-  street: "",
-  city: "",
+  address: "",
   zip: "",
 };
 
 const Register = () => {
   const { handleInput, formInput } = useInputHandler(InitialState);
-  const { register, error, loading } = useAuthHandler(formInput);
+  const { register, error, loading, setError, handleFileChange } =
+    useAuthHandler(formInput);
 
   return (
-    <RegisterContainer>
+    <Container>
       <BannerContainer>
         <Banners />
       </BannerContainer>
@@ -42,12 +40,19 @@ const Register = () => {
         <Logo style={{ margin: 10 }} height={150} width={150}>
           <img src={SaloonLogo} alt="logo" />
         </Logo>
-        {error && <Alert severity="error">{error}</Alert>}
+        {error && (
+          <Alert
+            onClose={() => setError("")}
+            sx={{ margin: "10px", width: "100%" }}
+            severity="error"
+          >
+            {error}
+          </Alert>
+        )}
         <Form onSubmit={register}>
           <TextField
             fullWidth
             type="text"
-            margin="dense"
             size="small"
             label="Saloon Name"
             name="title"
@@ -57,7 +62,6 @@ const Register = () => {
           <TextField
             fullWidth
             type="email"
-            margin="dense"
             size="small"
             label="Email"
             name="email"
@@ -66,7 +70,6 @@ const Register = () => {
           />
           <TextField
             fullWidth
-            margin="dense"
             size="small"
             type="password"
             label="Password"
@@ -77,7 +80,6 @@ const Register = () => {
           <TextField
             fullWidth
             type="password"
-            margin="dense"
             size="small"
             label="Confirm Password"
             name="confirmPassword"
@@ -86,7 +88,6 @@ const Register = () => {
           />
           <TextField
             fullWidth
-            margin="dense"
             size="small"
             label="phone"
             type="text"
@@ -96,38 +97,16 @@ const Register = () => {
           />
           <TextField
             fullWidth
-            margin="dense"
             size="small"
-            label="Shop No"
+            label="Address"
             type="text"
             name="shopNo"
             onChange={handleInput}
             value={formInput.shopNo}
           />
-          <TextField
-            fullWidth
-            margin="dense"
-            size="small"
-            label="Street"
-            type="text"
-            name="street"
-            onChange={handleInput}
-            value={formInput.street}
-          />
 
           <TextField
             fullWidth
-            margin="dense"
-            size="small"
-            label="city"
-            type="text"
-            name="city"
-            onChange={handleInput}
-            value={formInput.city}
-          />
-          <TextField
-            fullWidth
-            margin="dense"
             size="small"
             label="Zip/Postal Code"
             type="text"
@@ -135,8 +114,8 @@ const Register = () => {
             onChange={handleInput}
             value={formInput.zip}
           />
+          <input type="file" onChange={handleFileChange} />
 
-          <CountrySelect />
           <Button
             sx={{ background: `${colors.colorBlack}` }}
             variant="contained"
@@ -146,7 +125,7 @@ const Register = () => {
           </Button>
         </Form>
       </FormContainer>
-    </RegisterContainer>
+    </Container>
   );
 };
 

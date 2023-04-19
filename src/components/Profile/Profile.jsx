@@ -1,5 +1,5 @@
-import React from "react";
-import { Image } from "../../styles/image";
+import React, { useEffect } from "react";
+
 import {
   ProfileContainer,
   Role,
@@ -7,19 +7,21 @@ import {
   UserName,
 } from "./Profile.styles";
 
+import { Avatar } from "@mui/material";
 import { useSelector } from "react-redux";
-import ProfilePic from "../../assets/styling-hair.jpg";
+
 import useLogOut from "../../hooks/user.logout";
-import { currentUser } from "../../redux-store/user/user.selector";
+import { currentUser } from "../../selectors/user.selector";
+
 const Profile = () => {
   const user = useSelector(currentUser);
 
   const { LogOut } = useLogOut();
+
   return (
     <ProfileContainer>
-      <Image height={40} width={40} borderRadius={50} onClick={LogOut}>
-        <img style={{ borderRadius: "50%" }} src={ProfilePic} alt="profile" />
-      </Image>
+      <Avatar src={user?.avatar} onClick={LogOut} />
+
       <UserDetails>
         {user && <UserName>{user?.title}</UserName>}
         {user && <Role>{user?.role}</Role>}

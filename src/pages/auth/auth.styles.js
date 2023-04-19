@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { colors } from "../../styles/colors";
 
-export const RegisterContainer = styled.div`
+export const Container = styled.div`
   display: flex;
   /* margin: 0 10px; */
   align-items: flex-start;
@@ -28,7 +28,7 @@ export const Logo = styled.div`
 
 export const Form = styled.form`
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  /* grid-template-columns: 1fr 1fr; */
   gap: 10px;
   width: 100%;
 
@@ -60,14 +60,16 @@ export const BannerContainer = styled.div`
   align-items: center;
   justify-content: center;
   background: ${colors.colorBlack};
-
+  flex: 0.6;
   @media screen and (max-width: 850px) {
     display: none;
+    flex: 0;
   }
 `;
 
 export const FormContainer = styled.div`
   padding: 0 40px;
+  flex: 0.4;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -82,9 +84,14 @@ export const FormContainer = styled.div`
     color: ${colors.colorBlack};
     margin: 10px;
   }
+  @media screen and (max-width: 850px) {
+    flex: 1;
+    max-width: 500px;
+    margin: auto;
+  }
 
   @media screen and (max-width: 450px) {
-    justify-content: flex-start;
+    /* justify-content: flex-start; */
     height: 100vh;
     padding: 0 20px;
 

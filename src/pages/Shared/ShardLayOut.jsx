@@ -1,14 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import { Outlet } from "react-router-dom";
 import NavBar from "../../components/Nav/NavBar";
 import SideBar from "../../components/Sidebar/SideBar";
 import { Body, Container } from "./Shared.styles";
 const SharedLayOut = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleSideBar = () => {
+    setIsOpen(!isOpen);
+  };
   return (
     <Container>
-      <SideBar />
+      <SideBar isOpen={isOpen} toggleSideBar={toggleSideBar} />
       <Body>
-        <NavBar />
+        <NavBar isOpen={isOpen} toggleSideBar={toggleSideBar} />
         <Outlet />
       </Body>
     </Container>

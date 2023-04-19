@@ -1,9 +1,8 @@
 import React, { useRef } from "react";
 import Slider from "react-slick";
 import styled from "styled-components";
-import FemaleSaloon from "../../assets/female-saloon.avif";
+
 import HairCutting from "../../assets/haircutting.jpg";
-import MakeUp from "../../assets/makeup.jpg";
 
 import Hair from "../../assets/styling-hair.jpg";
 
@@ -14,20 +13,11 @@ const bannerdata = [
     src: Hair,
     quote: "Beauty comes from inside, inside the beauty salon",
   },
+
   {
     id: 2,
-    src: FemaleSaloon,
-    quote: "The time to relax is when you don't have time for it.",
-  },
-  {
-    id: 3,
     src: HairCutting,
     quote: "Make time for yourself.",
-  },
-  {
-    id: 4,
-    src: MakeUp,
-    quote: "A referral is the best gift a salon can receive from a customer.",
   },
 ];
 

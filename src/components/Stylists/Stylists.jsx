@@ -15,6 +15,7 @@ const Stylists = () => {
     const getAllSpecilists = async () => {
       try {
         setLoading(true);
+
         const response = await axios.get(
           "http://localhost:8080/api/v1/saloon/getAllStylists",
           {
@@ -30,7 +31,6 @@ const Stylists = () => {
         }
         setLoading(false);
       } catch (error) {
-        console.log(error);
         setLoading(false);
         setError(error?.response?.data);
       }

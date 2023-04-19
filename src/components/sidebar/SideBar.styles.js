@@ -12,10 +12,7 @@ export const Container = styled.div`
   width: 300px;
   padding: 0 10px;
   overflow-y: scroll;
-
-  transition: all 0.2s ease-in;
-  border-right: 2px solid ${colors.colorWhite};
-
+  transition: all 150ms ease-in-out;
   @media screen and (max-width: 1000px) {
     width: 80px;
   }
@@ -23,20 +20,37 @@ export const Container = styled.div`
   ::-webkit-scrollbar {
     display: none;
   }
+
+  @media screen and (max-width: 600px) {
+    width: 240px;
+
+    z-index: 100;
+    transform: ${({ isOpen }) =>
+      isOpen ? "translateX(-100%)" : "translateX(0%)"};
+  }
 `;
 
-export const LogoContainer = styled.div`
+export const SideBarHeaderWrapper = styled.div`
   display: flex;
   align-items: center;
+  justify-content: space-between;
+
   height: 60px;
   margin-bottom: 10px;
-  /* margin-top: 15px; */
-  transition: all 0.2 ease-in;
+  transition: all 150ms ease-in-out;
   border-bottom: 2px solid ${colors.colorWhite};
   position: sticky;
   top: 0px;
   z-index: 100;
   background: ${colors.colorBlack};
+`;
+
+export const LogoContainer = styled.div`
+  display: flex;
+  align-items: center;
+
+  transition: all 150ms ease-in-out;
+
   h3 {
     margin: 10px;
   }
@@ -46,5 +60,21 @@ export const LogoContainer = styled.div`
     h3 {
       display: none;
     }
+  }
+
+  @media screen and (max-width: 600px) {
+    justify-content: flex-start;
+    h3 {
+      display: block;
+    }
+  }
+`;
+
+export const ProfileWrapper = styled.div`
+  display: none;
+
+  @media screen and (max-width: 600px) {
+    display: block;
+    margin: 20px 0;
   }
 `;

@@ -26,4 +26,11 @@ export const SideBarItem = styled(Link)`
       display: none;
     }
   }
+
+  @media screen and (max-width: 600px) {
+    justify-content: flex-start;
+    h1 {
+      display: block;
+    }
+  }
 `;

@@ -10,6 +10,7 @@ import SharedLayOut from "./pages/Shared/ShardLayOut";
 import Login from "./pages/auth/Login";
 import Register from "./pages/auth/Register";
 import { currentUser } from "./selectors/user.selector";
+
 function App() {
   const dispatch = useDispatch();
   const currentUserValue = useSelector(currentUser);
@@ -24,7 +25,7 @@ function App() {
     });
     // dispatch never updates so we can ingore it in useEffect dependency array
   }, [pathname, dispatch]);
-  console.log("da");
+
   return (
     <React.Fragment>
       <Routes>
@@ -34,7 +35,7 @@ function App() {
             element={currentUserValue ? <DashBoard /> : <Navigate to="login" />}
           />
           <Route path="/clients" element={<h1>Clients</h1>} />
-          <Route path="/stylists" element={<h1>asda</h1>} />
+
           <Route path="/message" element={<h1>message</h1>} />
           <Route path="/reviews" element={<h1>reviews</h1>} />
           <Route path="/finances" element={<h1>finances</h1>} />

@@ -20,10 +20,14 @@ const useAuthHandler = (formInput) => {
     zip,
   } = formInput;
 
+  const [file, setFile] = useState(null);
+  const handleFileChange = (event) => {
+    setFile(event.target.files[0]);
+  };
+
   const register = async (event) => {
     event.preventDefault();
 
-    // if (!formInput) return;
     let emptyFileds = [];
 
     if (!title) emptyFileds.push("Title");
@@ -31,10 +35,53 @@ const useAuthHandler = (formInput) => {
     if (!password) emptyFileds.push("Password");
     if (!confirmPassword) emptyFileds.push("Confirm Password");
     if (!phone) emptyFileds.push("Phone");
-    if (!shopNo) emptyFileds.push("Address Line 1");
-    if (!street) emptyFileds.push("Address Line 2");
-    if (!city) emptyFileds.push("City");
+    // if (!shopNo) emptyFileds.push("Address Line 1");
+    // if (!street) emptyFileds.push("Address Line 2");
+    // if (!city) emptyFileds.push("City");
     if (!zip) emptyFileds.push("Zip/Postal Code");
+
+    if (emptyFileds.length > 0) {
+      setError(`${[...emptyFileds]} can't be empty`);
+      return;
+    } else {
+      setError("");
+    }
+
+    if (password !== confirmPassword) {
+      setError("Password does not match");
+      return;
+    }
+
+    const formData = new FormData();
+    formData.append("file", file);
+    formData.append("email", email);
+    formData.append("password", password);
+    formData.append("phone", phone);
+    formData.append("title", title);
+    try {
+      setLoading(true);
+      const response = await axios.post(
+        "http://localhost:8080/api/v1/saloon/register",
+        formData
+      );
+      console.log(response);
+      if (response.status === 201 || response.statusText === "OK") {
+        localStorage.setItem("user", JSON.stringify(response.data));
+        dispatch(setCurrentUser(response.data));
+      }
+      setLoading(false);
+    } catch (error) {
+      setLoading(false);
+      console.log(error);
+      // setError(error.response.data.message);
+    }
+  };
+
+  const login = async (event) => {
+    event.preventDefault();
+    let emptyFileds = [];
+    if (!email) emptyFileds.push("Email");
+    if (!password) emptyFileds.push("Password");
 
     if (emptyFileds.length > 0) {
       setError(`${[...emptyFileds]} can't be empty`);
@@ -46,50 +93,20 @@ const useAuthHandler = (formInput) => {
     try {
       setLoading(true);
       const response = await axios.post(
-        "http://localhost:8080/api/v1/saloon//register",
-        {
-          ...formInput,
-          address: {
-            shopNo,
-            street,
-            city,
-            zip,
-            country: "Sri Lanka",
-            location: {
-              coordinates: [2.111, 3.333],
-            },
-          },
-          role: "saloon",
-          avatar: "fsdfds",
-        }
-      );
-      console.log(response);
-      if (response.status === 200 || response.statusText === "OK") {
-        localStorage.setItem("user", JSON.stringify(response.data));
-        dispatch(setCurrentUser(response.data));
-      }
-      setLoading(false);
-    } catch (error) {
-      setLoading(false);
-      setError(error.response.data.error);
-    }
-  };
-
-  const login = async (event) => {
-    event.preventDefault();
-    try {
-      const response = await axios.post(
         "http://localhost:8080/api/v1/saloon/signin",
         {
           ...formInput,
         }
       );
+
       if (response.status === 200 || response.statusText === "OK") {
         localStorage.setItem("user", JSON.stringify(response.data));
         dispatch(setCurrentUser(response.data));
       }
+      setLoading(false);
     } catch (error) {
-      console.log(error);
+      setError(error.response.data.message);
+      setLoading(false);
     }
   };
 
@@ -97,7 +114,8 @@ const useAuthHandler = (formInput) => {
     register,
     loading,
     error,
-
+    setError,
+    handleFileChange,
     login,
   };
 };

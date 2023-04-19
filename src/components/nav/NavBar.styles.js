@@ -21,8 +21,6 @@ export const NavRight = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  /* justify-content: space-between; */
-  width: 100%;
 `;
 
 export const NavLeft = styled.div`
@@ -56,5 +54,17 @@ export const Image = styled.div`
     object-fit: cover;
 
     border-radius: ${({ type }) => (type === "profile" ? "50%" : "10px")};
+  }
+`;
+export const ProfileWrapper = styled.div`
+  @media screen and (max-width: 600px) {
+    display: none;
+  }
+`;
+export const MenuWrapper = styled.div`
+  display: none;
+
+  @media screen and (max-width: 600px) {
+    display: block;
   }
 `;

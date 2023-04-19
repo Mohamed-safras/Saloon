@@ -6,7 +6,7 @@ const Banner = ({ imageUrl, quote }) => {
   return (
     <BannerContainer>
       <Image src={imageUrl} />
-      <h1>{quote}</h1>
+      {/*<h1>{quote}</h1>*/}
     </BannerContainer>
   );
 };
@@ -23,7 +23,7 @@ const BannerContainer = styled.div`
 `;
 const Image = styled.div`
   width: 100%;
-  height: 350px;
+  height: 450px;
 
   border-radius: 10px;
   background-position: center; /* Center the image */
