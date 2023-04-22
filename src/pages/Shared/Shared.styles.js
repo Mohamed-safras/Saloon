@@ -14,7 +14,7 @@ export const Body = styled.div`
   top: 0;
   overflow-y: scroll;
   height: 100vh;
-  transition: all 150ms ease-in-out;
+  transition: all 150ms ease-in;
 
   @media screen and (max-width: 1000px) {
     left: 80px;

@@ -57,6 +57,7 @@ export const Image = styled.div`
   }
 `;
 export const ProfileWrapper = styled.div`
+  margin: 0 10px;
   @media screen and (max-width: 600px) {
     display: none;
   }

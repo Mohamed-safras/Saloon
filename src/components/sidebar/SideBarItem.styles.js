@@ -3,33 +3,35 @@ import styled from "styled-components";
 import { colors } from "../../styles/colors";
 
 export const SideBarItem = styled(Link)`
-  margin-bottom: 10px;
   padding: 10px;
   border-radius: 10px;
-  height: 40px;
   display: flex;
   align-items: center;
   width: 100%;
-
-  background: ${colors.colorWhite};
-  color: ${colors.colorBlack};
-  h1 {
+  gap: 10px;
+  margin: 5px 0;
+  transition: all 150ms ease-in-out;
+  color: ${colors.colorWhite};
+  ${({ active }) => active && "background:#344154"};
+  h3 {
     font-size: 18px;
     font-weight: 500;
-    margin-left: 10px;
+    /* margin-left: 10px; */
     font-size: 15px;
   }
-
+  &:hover {
+    background: #344154;
+  }
   @media screen and (max-width: 1000px) {
     justify-content: center;
-    h1 {
+    h3 {
       display: none;
     }
   }
 
   @media screen and (max-width: 600px) {
     justify-content: flex-start;
-    h1 {
+    h3 {
       display: block;
     }
   }
