@@ -14,6 +14,7 @@ import {
   FormContainer,
   Logo,
 } from "./auth.styles";
+import { bannerdata } from "./Banner";
 
 const InitialState = {
   email: "",
@@ -27,7 +28,7 @@ const Login = () => {
   return (
     <Container>
       <BannerContainer>
-        <Banners />
+        <Banners banners={bannerdata} />
       </BannerContainer>
       <FormContainer>
         <Logo style={{ margin: 10 }} height={150} width={150}>

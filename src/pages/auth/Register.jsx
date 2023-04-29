@@ -14,6 +14,7 @@ import {
   FormContainer,
   Logo,
 } from "./auth.styles";
+import { bannerdata } from "./Banner";
 
 export const InitialState = {
   title: "",
@@ -33,7 +34,7 @@ const Register = () => {
   return (
     <Container>
       <BannerContainer>
-        <Banners />
+        <Banners banners={bannerdata} />
       </BannerContainer>
       <FormContainer>
         <h3>Get Started Now</h3>
