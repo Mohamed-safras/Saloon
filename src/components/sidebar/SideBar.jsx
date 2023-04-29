@@ -1,12 +1,19 @@
+import AccountBalanceWalletIcon from "@mui/icons-material/AccountBalanceWallet";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
+import AddCircleIcon from "@mui/icons-material/AddCircle";
+import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import ContentCutIcon from "@mui/icons-material/ContentCut";
 import DashboardOutlinedIcon from "@mui/icons-material/DashboardOutlined";
 import LogoutIcon from "@mui/icons-material/Logout";
+import MailIcon from "@mui/icons-material/Mail";
+import ReviewsIcon from "@mui/icons-material/Reviews";
+import SettingsIcon from "@mui/icons-material/Settings";
 import { Avatar, IconButton } from "@mui/material";
 import React from "react";
 import SaloonLogo from "../../assets/logo.webp";
 import useLogOut from "../../hooks/user.logout";
 import Profile from "../Profile/Profile";
+
 import {
   Container,
   LogOutWrapper,
@@ -27,21 +34,44 @@ const SideBar = ({ isOpen, toggleSideBar }) => {
       </LogoContainer>
 
       <SideBarItemWrapper>
-        {" "}
         <SideBarItems
           to={"/"}
           Icon={<DashboardOutlinedIcon />}
           title={"DashBoard"}
         />
         <SideBarItems
-          to={"stylists"}
-          title={"Stylists"}
-          Icon={<ContentCutIcon />}
+          to={"appoinments"}
+          title={"Appoinments"}
+          Icon={<CalendarMonthIcon />}
         />
+        <SideBarItems
+          to={"services"}
+          title={"Services"}
+          Icon={<AddCircleIcon />}
+        />
+
         <SideBarItems
           to={"clients"}
           title={"Clients"}
           Icon={<AccountCircleOutlinedIcon />}
+        />
+        <SideBarItems
+          to={"staffs"}
+          title={"Staffs"}
+          Icon={<ContentCutIcon />}
+        />
+
+        <SideBarItems to={"message"} title={"Message"} Icon={<MailIcon />} />
+        <SideBarItems to={"reviews"} title={"Reviews"} Icon={<ReviewsIcon />} />
+        <SideBarItems
+          to={"finances"}
+          title={"Finances"}
+          Icon={<AccountBalanceWalletIcon />}
+        />
+        <SideBarItems
+          to={"settings"}
+          title={"Settings"}
+          Icon={<SettingsIcon />}
         />
       </SideBarItemWrapper>
       <SidebarBottomWrapper>
