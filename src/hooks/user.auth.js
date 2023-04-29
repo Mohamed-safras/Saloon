@@ -64,7 +64,7 @@ const useAuthHandler = (formInput) => {
         "http://localhost:8080/api/v1/saloon/register",
         formData
       );
-      console.log(response);
+
       if (response.status === 201 || response.statusText === "OK") {
         localStorage.setItem("user", JSON.stringify(response.data));
         dispatch(setCurrentUser(response.data));

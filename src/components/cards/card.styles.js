@@ -8,7 +8,7 @@ export const CardContainer = styled.div`
   padding: 10px;
   border-radius: 10px;
   min-width: 200px;
-  min-height: 50px;
+  /* min-height: 50px; */
   box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
 `;
 

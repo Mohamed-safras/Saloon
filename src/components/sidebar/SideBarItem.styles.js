@@ -14,10 +14,11 @@ export const SideBarItem = styled(Link)`
   color: ${colors.colorWhite};
   ${({ active }) => active && "background:#344154"};
   h3 {
-    font-size: 18px;
-    font-weight: 500;
+    font-size: 16px;
+    font-weight: 400;
     /* margin-left: 10px; */
     font-size: 15px;
+    letter-spacing: 1px;
   }
   &:hover {
     background: #344154;

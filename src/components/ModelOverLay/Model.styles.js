@@ -6,13 +6,14 @@ export const ModelWrapper = styled.div`
   background: ${colors.colorWhite};
   top: 50%;
   left: 50%;
-  max-width: 600px;
+  margin: auto;
+  max-width: 750px;
   box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
   /* max-height: 600px; */
-  width: 100%;
-  z-index: 1000;
+  width: 95%;
+  z-index: 100;
   /* height: 100%; */
-  padding: 10px;
+  padding: 30px;
   border-radius: 10px;
   transform: translate(-50%, -50%);
 `;

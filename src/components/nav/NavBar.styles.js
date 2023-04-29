@@ -10,7 +10,7 @@ export const NavContainer = styled.div`
   padding: 10px;
   position: sticky;
   top: 0px;
-  z-index: 100;
+  z-index: 10;
   /* border-radius: 15px; */
   height: 60px;
 
@@ -58,6 +58,12 @@ export const Image = styled.div`
 `;
 export const ProfileWrapper = styled.div`
   margin: 0 10px;
+
+  display: none;
+
+  @media screen and (max-width: 1000px) {
+    display: block;
+  }
   @media screen and (max-width: 600px) {
     display: none;
   }

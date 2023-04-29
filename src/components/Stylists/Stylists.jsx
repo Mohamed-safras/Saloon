@@ -24,6 +24,7 @@ const Stylists = () => {
             },
           }
         );
+        console.log(response);
         if (response?.status !== 200) {
           throw new Error("some thing went wrong");
         } else {

@@ -8,6 +8,7 @@ export const StylistsContainer = styled.div`
   padding: 10px;
   border-radius: 10px;
   width: 100%;
+  margin: 10px 0;
   box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
   h3 {
     font-weight: 500;

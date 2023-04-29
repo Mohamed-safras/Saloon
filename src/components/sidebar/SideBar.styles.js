@@ -13,7 +13,7 @@ export const Container = styled.div`
   /* overflow-y: scroll; */
   transition: all 150ms ease-in;
   padding: 0 10px;
-  z-index: 100;
+  /* z-index: 1; */
 
   @media screen and (max-width: 1000px) {
     width: 80px;
@@ -45,16 +45,16 @@ export const LogoContainer = styled.div`
   top: 0;
   left: 0;
   right: 0;
-  z-index: 100;
+  z-index: 10;
   width: 100%;
   padding: 0 15px;
-  box-shadow: -1px -2px 10px rgb(0, 0, 0);
+  /* box-shadow: -1px -2px 10px rgb(0, 0, 0); */
   h3 {
     margin: 10px;
     font-size: 18px;
     text-transform: uppercase;
-
-    font-family: "Bruno", sans-serif;
+    letter-spacing: 4px;
+    font-family: "Sigmar", sans-serif;
   }
 
   @media screen and (max-width: 1000px) {
@@ -75,13 +75,13 @@ export const SidebarBottomWrapper = styled.div`
   display: flex;
   position: absolute;
   width: 100%;
-  /* border-top: 1px solid #fff; */
+  border-top: 1px solid #fff;
   bottom: 0;
   background: #101727;
   align-items: center;
   left: 0;
   right: 0;
-  box-shadow: -1px -2px 10px rgb(0, 0, 0);
+  /* box-shadow: -1px -2px 10px rgb(0, 0, 0); */
   justify-content: space-between;
   padding: 0 15px;
   height: 60px;

@@ -8,12 +8,7 @@ import Financial from "../Financial/Financial";
 
 import Graph from "../GraphStatistics/Graph";
 import Stylists from "../Stylists/Stylists";
-import {
-  FinancialWrapper,
-  NumericalStatistics,
-  StatisticsContainer,
-  StylistsAndFinancial,
-} from "./Statistics.styles";
+import { NumericalStatistics, StatisticsContainer } from "./Statistics.styles";
 const Statistics = () => {
   return (
     <StatisticsContainer>
@@ -34,18 +29,8 @@ const Statistics = () => {
         </Card>
       </NumericalStatistics>
       <Graph />
-      <StylistsAndFinancial
-        style={{
-          display: "flex",
-          gap: "10px",
-          margin: "10px 0",
-        }}
-      >
-        <Stylists />
-        <FinancialWrapper>
-          <Financial />
-        </FinancialWrapper>
-      </StylistsAndFinancial>
+      <Stylists />
+      <Financial />
     </StatisticsContainer>
   );
 };

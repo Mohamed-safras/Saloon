@@ -6,9 +6,12 @@ import useLogOut from "./hooks/user.logout";
 
 import { setCurrentUser } from "./actions/user.action";
 import DashBoard from "./pages/Dashboard/DashBoard";
+import Service from "./pages/Service/Service";
 import SharedLayOut from "./pages/Shared/ShardLayOut";
+import Staff from "./pages/Staff/Staff";
 import Login from "./pages/auth/Login";
 import Register from "./pages/auth/Register";
+import Clients from "./pages/clients/Clients";
 import { currentUser } from "./selectors/user.selector";
 
 function App() {
@@ -34,8 +37,10 @@ function App() {
             index
             element={currentUserValue ? <DashBoard /> : <Navigate to="login" />}
           />
-          <Route path="/clients" element={<h1>Clients</h1>} />
-          <Route path="/stylists" element={<h1>Clients</h1>} />
+          <Route path="/appoinments" element={<h1>appoinments</h1>} />
+          <Route path="/services" element={<Service />} />
+          <Route path="/clients" element={<Clients />} />
+          <Route path="/staffs" element={<Staff />} />
           <Route path="/message" element={<h1>message</h1>} />
           <Route path="/reviews" element={<h1>reviews</h1>} />
           <Route path="/finances" element={<h1>finances</h1>} />

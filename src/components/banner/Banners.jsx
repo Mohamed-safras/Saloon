@@ -2,26 +2,9 @@ import React, { useRef } from "react";
 import Slider from "react-slick";
 import styled from "styled-components";
 
-import HairCutting from "../../assets/haircutting.jpg";
-
-import Hair from "../../assets/styling-hair.jpg";
-
 import Banner from "./Banner";
-const bannerdata = [
-  {
-    id: 1,
-    src: Hair,
-    quote: "Beauty comes from inside, inside the beauty salon",
-  },
 
-  {
-    id: 2,
-    src: HairCutting,
-    quote: "Make time for yourself.",
-  },
-];
-
-const Banners = () => {
+const Banners = ({ banners }) => {
   const settings = {
     dots: true,
     infinite: true,
@@ -38,7 +21,7 @@ const Banners = () => {
   return (
     <Slide>
       <Slider ref={slideRef} {...settings}>
-        {bannerdata.map((item) => (
+        {banners.map((item) => (
           <Banner quote={item.quote} imageUrl={item.src} key={item.id} />
         ))}
       </Slider>

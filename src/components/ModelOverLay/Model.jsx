@@ -11,7 +11,7 @@ import {
   TextField,
 } from "@mui/material";
 import axios from "axios";
-import React, { useState } from "react";
+import React from "react";
 import useInputHandler from "../../hooks/InputHandler";
 
 import {
@@ -33,7 +33,7 @@ const InitialState = {
   coordinates: [2.344, 2.333],
 };
 
-const Model = ({ toggleModel }) => {
+const Model = ({ toggleModel, children }) => {
   const { handleInput, formInput } = useInputHandler(InitialState);
 
   const fixedOptions = [top100Films[1], top100Films[2]];
@@ -69,134 +69,12 @@ const Model = ({ toggleModel }) => {
   return (
     <ModelWrapper>
       <ModelHeader>
-        <h3>Add Stylist</h3>
-
+        <h3>Add Staff</h3>
         <IconButton onClick={toggleModel}>
           <CloseIcon />
         </IconButton>
       </ModelHeader>
-
-      <Form onSubmit={handelFormSubmit}>
-        <InputWrapper>
-          <TextField
-            fullWidth
-            size="small"
-            id="outlined-basic"
-            label={"Name"}
-            variant="outlined"
-            required
-            margin="dense"
-            name={"name"}
-            value={formInput.name}
-            onChange={handleInput}
-          />
-          <TextField
-            fullWidth
-            size="small"
-            id="outlined-basic"
-            label={"Email"}
-            variant="outlined"
-            required
-            margin="dense"
-            name={"email"}
-            value={formInput.email}
-            onChange={handleInput}
-          />
-          <TextField
-            fullWidth
-            size="small"
-            id="outlined-basic"
-            label={"Address"}
-            variant="outlined"
-            required
-            margin="dense"
-            name={"address"}
-            value={formInput.address}
-            onChange={handleInput}
-          />
-          <TextField
-            fullWidth
-            size="small"
-            id="outlined-basic"
-            label={"Phone"}
-            variant="outlined"
-            required
-            margin="dense"
-            name={"phone"}
-            value={formInput.phone}
-            onChange={handleInput}
-          />
-          <TextField
-            fullWidth
-            size="small"
-            id="outlined-basic"
-            label={"Experience"}
-            variant="outlined"
-            margin="dense"
-            name={"experience"}
-            value={formInput.experience}
-            onChange={handleInput}
-            type={"number"}
-          />
-          <FormControl fullWidth size="small" margin="dense">
-            <InputLabel id="demo-select-small">Working Type</InputLabel>
-            <Select
-              labelId="demo-select-small"
-              id="demo-select-small"
-              value={formInput.working_type}
-              label="Working Type"
-              onChange={handleInput}
-              name="working_type"
-            >
-              <MenuItem value="">
-                <em>None</em>
-              </MenuItem>
-              <MenuItem value={"Full Time"}>Full Time</MenuItem>
-              <MenuItem value={"Part Time"}>Part Time</MenuItem>
-            </Select>
-          </FormControl>
-        </InputWrapper>
-
-        <TextArea
-          aria-label="empty textarea"
-          placeholder="Tell something about your stylist"
-          name="about"
-          value={formInput.about}
-          onChange={handleInput}
-        />
-        <Autocomplete
-          multiple
-          fullWidth
-          id="fixed-tags-demo"
-          value={serviceSpecial}
-          onChange={(event, newValue) => {
-            setServiceSpecial([
-              ...fixedOptions,
-              ...newValue.filter(
-                (option) => fixedOptions.indexOf(option) === -1
-              ),
-            ]);
-          }}
-          options={top100Films}
-          getOptionLabel={(option) => option.title}
-          renderTags={(tagValue, getTagProps) =>
-            tagValue.map((option, index) => (
-              <Chip
-                label={option.title}
-                {...getTagProps({ index })}
-                disabled={fixedOptions.indexOf(option) !== -1}
-              />
-            ))
-          }
-          style={{ width: 500 }}
-          renderInput={(params) => (
-            <TextField {...params} label="Fixed tag" placeholder="Favorites" />
-          )}
-        />
-        <Button fullWidth variant="contained" type="submit">
-          Add Stylist
-        </Button>
-      </Form>
+      {children}
     </ModelWrapper>
   );
 };

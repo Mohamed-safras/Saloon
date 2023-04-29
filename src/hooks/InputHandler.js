@@ -4,6 +4,7 @@ const useInputHandler = (InitialState) => {
   const [formInput, setFormInput] = useState(InitialState);
 
   const handleInput = (event) => {
+    console.log(event.target.value);
     setFormInput((prev) => {
       return {
         ...prev,
@@ -11,7 +12,6 @@ const useInputHandler = (InitialState) => {
       };
     });
   };
-
   return {
     formInput,
     handleInput,
