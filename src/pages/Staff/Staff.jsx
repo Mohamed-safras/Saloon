@@ -1,10 +1,12 @@
 import AddCircleIcon from "@mui/icons-material/AddCircle";
+import SaveIcon from "@mui/icons-material/Save";
 import React, { useState } from "react";
+import AddStaff from "../../components/Staff/AddStaff";
 import BannerBackground from "../../components/Banner/BannerBackground";
 import Model from "../../components/ModelOverLay/Model";
 import OverLay from "../../components/ModelOverLay/OverLay";
+import StaffItems from "../../components/Staff/StaffItems";
 import { Button, StaffContainer } from "./staff.styles";
-
 const Staff = () => {
   const [isOpen, setIsOpen] = useState(true);
 
@@ -22,8 +24,13 @@ const Staff = () => {
         </Button>
       </BannerBackground>
 
-      {!isOpen && <Model toggleModel={toggleModel} />}
+      {!isOpen && (
+        <Model title="Add Staff" toggleModel={toggleModel}>
+          <AddStaff setIsOpen={setIsOpen} isOpen={isOpen} />
+        </Model>
+      )}
       {!isOpen && <OverLay />}
+      <StaffItems />
     </StaffContainer>
   );
 };

@@ -2,9 +2,8 @@ import { useState } from "react";
 
 const useInputHandler = (InitialState) => {
   const [formInput, setFormInput] = useState(InitialState);
-
+  const [images, setImages] = useState([]);
   const handleInput = (event) => {
-    console.log(event.target.value);
     setFormInput((prev) => {
       return {
         ...prev,
@@ -12,9 +11,17 @@ const useInputHandler = (InitialState) => {
       };
     });
   };
+
+  const handleFileChange = (event) => {
+    setImages(() => [...event.target.files]);
+  };
+
   return {
     formInput,
     handleInput,
+    images,
+    handleFileChange,
+    setImages,
   };
 };
 

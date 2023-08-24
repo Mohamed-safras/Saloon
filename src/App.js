@@ -5,6 +5,9 @@ import AuthVerify from "./common/AuthVerify";
 import useLogOut from "./hooks/user.logout";
 
 import { setCurrentUser } from "./actions/user.action";
+import { pathSpliter } from "./common/path.split";
+import NotFound from "./components/NotFound/NotFound";
+import ServiceDetails from "./components/Services/ServiceDetails";
 import DashBoard from "./pages/Dashboard/DashBoard";
 import Service from "./pages/Service/Service";
 import SharedLayOut from "./pages/Shared/ShardLayOut";
@@ -29,6 +32,8 @@ function App() {
     // dispatch never updates so we can ingore it in useEffect dependency array
   }, [pathname, dispatch]);
 
+  console.log();
+
   return (
     <React.Fragment>
       <Routes>
@@ -39,13 +44,17 @@ function App() {
           />
           <Route path="/appoinments" element={<h1>appoinments</h1>} />
           <Route path="/services" element={<Service />} />
+          <Route
+            path={`/services/${pathSpliter(pathname)}`}
+            element={<ServiceDetails />}
+          />
           <Route path="/clients" element={<Clients />} />
           <Route path="/staffs" element={<Staff />} />
           <Route path="/message" element={<h1>message</h1>} />
           <Route path="/reviews" element={<h1>reviews</h1>} />
           <Route path="/finances" element={<h1>finances</h1>} />
           <Route path="/settings" element={<h1>settings</h1>} />
-          <Route path="*" element={<h1>No found</h1>} />
+          <Route path="*" element={<NotFound />} />
         </Route>
         <Route
           element={!currentUserValue ? <Login /> : <Navigate to="/" />}
