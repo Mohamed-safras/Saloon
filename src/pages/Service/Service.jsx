@@ -1,17 +1,17 @@
 import AddCircleIcon from "@mui/icons-material/AddCircle";
+import SaveIcon from "@mui/icons-material/Save";
 import React, { useState } from "react";
 import Background from "../../assets/service_background.jpg";
 import BannerBackground from "../../components/Banner/BannerBackground";
 import Model from "../../components/ModelOverLay/Model";
 import OverLay from "../../components/ModelOverLay/OverLay";
-
-import AddService from "../../components/Services/AddService";
 import ServiceItems from "../../components/Services/ServiceItems";
+import AddModel from "../../components/Services/index";
 import { Button } from "../Staff/staff.styles";
 import { ServiceContainer } from "./service.styles";
 const Service = () => {
   const [isOpen, setIsOpen] = useState(true);
-
+  const [service, setService] = useState([]);
   const toggleModel = () => setIsOpen(!isOpen);
 
   return (
@@ -23,12 +23,19 @@ const Service = () => {
       </BannerBackground>
 
       {!isOpen && (
-        <Model toggleModel={toggleModel}>
-          <AddService />
+        <Model title="Add Service" toggleModel={toggleModel}>
+          <AddModel
+            service={service}
+            isOpen={isOpen}
+            setService={setService}
+            setIsOpen={setIsOpen}
+            actionName={"Add Service"}
+            Icon={SaveIcon}
+          />
         </Model>
       )}
       {!isOpen && <OverLay />}
-      <ServiceItems />
+      <ServiceItems service={service} setService={setService} />
     </ServiceContainer>
   );
 };

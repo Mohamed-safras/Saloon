@@ -1,10 +1,12 @@
 import styled from "styled-components";
+import { colors } from "../../styles/colors";
 
 export const ServiceCardContainer = styled.div`
   width: 100%;
   position: relative;
-  /* height: 100%; */
-  background: #101727;
+  /* height: 100px; */
+  background: ${colors.colorBlack};
+  border-radius: 15px;
   color: #fff;
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
     rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
