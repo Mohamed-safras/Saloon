@@ -100,3 +100,10 @@ export const FormContainer = styled.div`
     }
   }
 `;
+
+export const BarberShopAddress = styled.span`
+  font-size: 12px;
+  color: ${colors.colorGrayDark};
+  font-weight: 500;
+  margin: 2px 0;
+`;

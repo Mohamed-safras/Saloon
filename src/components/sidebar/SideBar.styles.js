@@ -51,10 +51,11 @@ export const LogoContainer = styled.div`
   /* box-shadow: -1px -2px 10px rgb(0, 0, 0); */
   h3 {
     margin: 10px;
-    font-size: 18px;
+    font-size: 16px;
+    /* flex: 1; */
     text-transform: uppercase;
     letter-spacing: 4px;
-    font-family: "Sigmar", sans-serif;
+    /* font-family: "Sigmar", sans-serif; */
   }
 
   @media screen and (max-width: 1000px) {

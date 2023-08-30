@@ -8,17 +8,7 @@ const useAuthHandler = (formInput) => {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const {
-    title,
-    email,
-    password,
-    confirmPassword,
-    phone,
-    shopNo,
-    street,
-    city,
-    zip,
-  } = formInput;
+  const { title, email, password, confirmPassword, phone, zip } = formInput;
 
   const [file, setFile] = useState(null);
   const handleFileChange = (event) => {

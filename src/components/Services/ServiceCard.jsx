@@ -7,11 +7,11 @@ import React from "react";
 
 import { Link } from "react-router-dom";
 import Slider from "react-slick";
+import service_image from "../../assets/Beauty-Salon-Services_1_.jpg";
 import circleloader from "../../assets/circle-loader.json";
 import useService from "../../hooks/service/useServices";
 import { colors } from "../../styles/colors";
 import { ServiceCardBottom, ServiceCardContainer } from "./service.card.styles";
-
 const ServiceCard = ({ serviceTitle, serviceImages, _id }) => {
   const settings = {
     dots: true,
@@ -30,8 +30,25 @@ const ServiceCard = ({ serviceTitle, serviceImages, _id }) => {
     <ServiceCardContainer>
       <Link to={`/services/${_id}`}>
         <Slider {...settings}>
-          {serviceImages?.map((item, id) => (
-            <div key={id}>
+          {serviceImages.length > 0 ? (
+            serviceImages?.map((item, id) => (
+              <div key={id}>
+                <img
+                  style={{
+                    borderTopLeftRadius: 15,
+                    borderTopRightRadius: 15,
+                    // height: "180px",
+                    width: "100%",
+                    aspectRatio: 3 / 2,
+                    objectFit: "cover",
+                  }}
+                  src={item?.src}
+                  alt="img"
+                />
+              </div>
+            ))
+          ) : (
+            <div>
               <img
                 style={{
                   borderTopLeftRadius: 15,
@@ -41,11 +58,11 @@ const ServiceCard = ({ serviceTitle, serviceImages, _id }) => {
                   aspectRatio: 3 / 2,
                   objectFit: "cover",
                 }}
-                src={item?.src}
+                src={service_image}
                 alt="img"
               />
             </div>
-          ))}
+          )}
         </Slider>
       </Link>
       <p style={{ padding: "10px", fontSize: "14px", fontWeight: 400 }}>

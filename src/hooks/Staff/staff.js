@@ -1,14 +1,13 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { STAFF_ACTION_TYPES } from "../../constants/staff.type";
 
 export const useStaff = () => {
   const [loading, setLoading] = useState(false);
-
-  const [error, setError] = useState({});
-  const user = localStorage.getItem("user");
-  const { token } = JSON.parse(user);
+  const [error, setError] = useState("");
+  // const user = localStorage.getItem("user");
+  const { token } = JSON.parse(localStorage.getItem("user"));
   const dispatch = useDispatch();
   const getAllStaff = async () => {
     try {
@@ -35,7 +34,7 @@ export const useStaff = () => {
       setLoading(false);
     } catch (error) {
       setLoading(false);
-      setError(error?.response?.data);
+      setError(error?.response?.data.message);
     }
   };
 

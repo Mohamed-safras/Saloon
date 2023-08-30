@@ -6,15 +6,17 @@ import Banners from "../../components/Banner/Banners";
 import useInputHandler from "../../hooks/InputHandler";
 import useAuthHandler from "../../hooks/user.auth";
 
+import { Link } from "react-router-dom";
 import { colors } from "../../styles/colors";
+import { bannerdata } from "./Banner";
 import {
   BannerContainer,
+  BarberShopAddress,
   Container,
   Form,
   FormContainer,
   Logo,
 } from "./auth.styles";
-import { bannerdata } from "./Banner";
 
 export const InitialState = {
   title: "",
@@ -125,6 +127,12 @@ const Register = () => {
             {loading ? "Loading..." : "SIGNUP"}
           </Button>
         </Form>
+        <BarberShopAddress style={{ margin: "10px" }}>
+          Already a user?{" "}
+          <Link style={{ color: colors.colorBlack }} to={"/login"}>
+            LOGIN
+          </Link>
+        </BarberShopAddress>
       </FormContainer>
     </Container>
   );

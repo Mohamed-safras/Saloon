@@ -17,11 +17,9 @@ const StaffItems = () => {
 
   useEffect(() => {
     getAllStaff();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // useEffect(() => {
-  //   getAllStaff();
-  // }, [staff, getAllStaff]);
   return (
     <React.Fragment>
       {loading ? (
@@ -44,7 +42,7 @@ const StaffItems = () => {
             </StaffCardContainer>
           ) : (
             <Empty
-              message={`${error ? error : "No Service Found"}`}
+              message={`${error ? error : "No Staffs Found"}`}
               animationData={EmptyCartAnimation}
             >
               <LinkToHome to="/">Back To Home</LinkToHome>

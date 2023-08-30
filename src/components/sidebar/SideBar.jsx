@@ -5,7 +5,6 @@ import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import ContentCutIcon from "@mui/icons-material/ContentCut";
 import DashboardOutlinedIcon from "@mui/icons-material/DashboardOutlined";
 import LogoutIcon from "@mui/icons-material/Logout";
-import MailIcon from "@mui/icons-material/Mail";
 import ReviewsIcon from "@mui/icons-material/Reviews";
 import SettingsIcon from "@mui/icons-material/Settings";
 import { Avatar, IconButton } from "@mui/material";
@@ -14,6 +13,7 @@ import SaloonLogo from "../../assets/logo.webp";
 import useLogOut from "../../hooks/user.logout";
 import Profile from "../Profile/Profile";
 
+import { commonNames } from "../../common/common.names";
 import {
   Container,
   LogOutWrapper,
@@ -30,7 +30,7 @@ const SideBar = ({ isOpen, toggleSideBar }) => {
     <Container isOpen={isOpen}>
       <LogoContainer>
         <Avatar sx={{ width: 35, height: 35 }} src={SaloonLogo} />
-        <h3>Salonly</h3>
+        <h3>{commonNames.SALOON_NAME}</h3>
       </LogoContainer>
 
       <SideBarItemWrapper>
@@ -60,8 +60,6 @@ const SideBar = ({ isOpen, toggleSideBar }) => {
           title={"Staffs"}
           Icon={<ContentCutIcon />}
         />
-
-        <SideBarItems to={"message"} title={"Message"} Icon={<MailIcon />} />
         <SideBarItems to={"reviews"} title={"Reviews"} Icon={<ReviewsIcon />} />
         <SideBarItems
           to={"finances"}

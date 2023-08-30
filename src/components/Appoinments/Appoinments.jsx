@@ -1,15 +1,14 @@
 import KeyboardDoubleArrowDownIcon from "@mui/icons-material/KeyboardDoubleArrowDown";
-import { Icon, IconButton } from "@mui/material";
+import { IconButton } from "@mui/material";
 import React from "react";
 import { colors } from "../../styles/colors";
 import Card from "../Cards/card";
-import Financial from "../Financial/Financial";
+
 import {
   AppoinmentsCards,
   AppoinmentsContainer,
   AppoinmentsWrapper,
   ArrowDownWrapper,
-  FinancialAppoinmentWrapper,
 } from "./Appoinment.styles";
 
 const Appoinments = () => {

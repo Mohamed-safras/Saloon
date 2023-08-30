@@ -1,15 +1,14 @@
-
 import axios from "axios";
 
 import React, { useEffect, useState } from "react";
-import { Navigate, useLocation, } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+import service_image from "../../assets/Beauty-Salon-Services_1_.jpg";
 import circleloader from "../../assets/circle-loader.json";
 import Background from "../../assets/service_background.jpg";
 import { pathSpliter } from "../../common/path.split";
 import { colors } from "../../styles/colors";
 import BannerBackground from "../Banner/BannerBackground";
 import Empty from "../NotFound/Empty";
-
 const ServiceDetails = () => {
   const { pathname } = useLocation();
   const user = localStorage.getItem("user");
@@ -33,13 +32,11 @@ const ServiceDetails = () => {
           },
         }
       );
-      
 
-      if (response?.status !==200) {
+      if (response?.status !== 200) {
         throw new Error("Something went wrong");
-        
       }
-    
+
       setIsLoading(false);
       setService(response?.data);
     } catch (error) {
@@ -48,7 +45,6 @@ const ServiceDetails = () => {
     }
   };
 
-  
   const { serviceImages } = service;
   return (
     <React.Fragment>
@@ -86,38 +82,68 @@ const ServiceDetails = () => {
                 }}
               >
                 <React.Fragment>
-                  {serviceImages?.map((item, index) => (
+                  {serviceImages.length > 0 ? (
+                    serviceImages?.map((item, index) => (
+                      <img
+                        key={index}
+                        src={item?.src}
+                        alt=""
+                        onClick={() => setSelectImage(index)}
+                        style={{
+                          minHeight: 120,
+                          width: "100%",
+                          objectFit: "cover",
+                          marginBottom: "5px",
+                          borderRadius: "5px",
+                          opacity: `${selectImage === index ? 1 : 0.4}`,
+                        }}
+                      />
+                    ))
+                  ) : (
                     <img
-                      key={index}
-                      src={item?.src}
+                      src={service_image}
                       alt=""
-                      onClick={() => setSelectImage(index)}
+                      onClick={() => setSelectImage(1)}
                       style={{
                         minHeight: 120,
                         width: "100%",
                         objectFit: "cover",
                         marginBottom: "5px",
                         borderRadius: "5px",
-                        opacity: `${selectImage === index ? 1 : 0.4}`,
                       }}
                     />
-                  ))}
+                  )}
                 </React.Fragment>
               </div>
 
               <div style={{ width: "100%", height: "100%" }}>
-                <img
-                  src={serviceImages[selectImage]?.src}
-                  alt=""
-                  style={{
-                    width: "100%",
-                    height: "100%",
-                    maxHeight: "450px",
-                    minHeight: "350px",
-                    objectFit: "cover",
-                    borderRadius: "10px",
-                  }}
-                />
+                {serviceImages.length > 0 ? (
+                  <img
+                    src={serviceImages[selectImage]?.src}
+                    alt=""
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      maxHeight: "450px",
+                      minHeight: "350px",
+                      objectFit: "cover",
+                      borderRadius: "10px",
+                    }}
+                  />
+                ) : (
+                  <img
+                    src={service_image}
+                    alt=""
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      maxHeight: "450px",
+                      minHeight: "350px",
+                      objectFit: "cover",
+                      borderRadius: "10px",
+                    }}
+                  />
+                )}
               </div>
             </div>
             <div>

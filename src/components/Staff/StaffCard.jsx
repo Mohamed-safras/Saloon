@@ -1,11 +1,9 @@
-import { Avatar, Button } from "@mui/material";
-import Lottie from "lottie-react";
 import React from "react";
 import styled from "styled-components";
 
-import { Link } from "react-router-dom";
-import Slider from "react-slick";
-import circleloader from "../../assets/circle-loader.json";
+// import { Link } from "react-router-dom";
+// import Slider from "react-slick";
+// import circleloader from "../../assets/circle-loader.json";
 import salon_avatar from "../../assets/staff.avif";
 import { colors } from "../../styles/colors";
 

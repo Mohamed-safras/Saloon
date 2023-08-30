@@ -6,15 +6,15 @@ import React from "react";
 import MenuIcon from "@mui/icons-material/Menu";
 import Profile from "../Profile/Profile";
 import {
-  Image,
+  // Image,
   MenuWrapper,
   NavContainer,
   NavLeft,
   NavRight,
   ProfileWrapper,
-  Role,
-  UserDetails,
-  UserName,
+  // Role,
+  // UserDetails,
+  // UserName,
 } from "./NavBar.styles";
 const NavBar = ({ toggleSideBar }) => {
   return (

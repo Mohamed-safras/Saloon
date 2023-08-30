@@ -45,7 +45,6 @@ const useService = () => {
   };
 
   const deleteService = async (_id) => {
-    console.log(services);
     try {
       const service_id = _id;
       const user = localStorage.getItem("user");
